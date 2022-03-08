@@ -1,0 +1,122 @@
+package c_statement;
+
+import java.util.Scanner;
+
+public class Baseball {
+
+	public static void main(String[] args) {
+		/*
+		 * 답: 123
+		 * 입력한 숫자 : 135 => 1S(1) 1B(3) 1O(5)
+		 * 답과 비교하여 strike, out, ball 결과를 출력
+		 * 
+		 * strike : 숫자도 같고 자리도 같은 것
+		 * ball : 숫자는 같으나 자리는 다른 것
+		 * out : 정답에 아예 없는 숫자
+		 * 
+		 * 규칙 : 1~9인 숫자, 중복x,
+		 */
+		
+		Scanner sc = new Scanner(System.in);
+		int goal = 0;
+		int ran1 = (int)(Math.random() * 9) + 1; //1~9 랜덤숫자
+		int ran2 = (int)(Math.random() * 9) + 1;
+		int ran3 = (int)(Math.random() * 9) + 1;
+		//0은 나오지 않으나 같은 수가 나옴
+				
+		for (int i = 0; i <= 1000; i++) {
+			if(	ran1 != ran2 && 
+				ran1 != ran3 && 
+				ran2 != ran3) {
+					goal += ran1*100;
+					goal += ran2*10;
+					goal += ran3;
+					break;
+		}else {
+			ran1 = (int)(Math.random() * 9) + 1; //1~9 랜덤숫자
+			ran2 = (int)(Math.random() * 9) + 1;
+			ran3 = (int)(Math.random() * 9) + 1;
+		}}
+		//같지 않은 랜덤 숫자 정답 변수에 담기
+		
+				System.out.println("\t★☆★☆BASEBALL GAME☆★☆★");
+				System.out.println("세 자리 숫자를 맞혀보세요!> \n(단, 세 숫자는 중복되지 않으며 0은 포함하지 않습니다.)");
+				double tr = Double.parseDouble(sc.nextLine());
+				
+				double fi = tr/100;
+				double se = (((tr/100)-(int)fi)*10);
+				double thr = tr%10;
+				
+				int a = (int)fi;
+				int b = (int)se;
+				int c = (int)thr;
+				// 각 자리 숫자 담고 형변환
+				
+				int str = 0;
+				int ball = 0;
+				int out = 0;
+				
+				if (goal == tr) {
+					System.out.println("★☆정답입니다☆★");
+				}
+				
+				while (ran1 == a || ran2 == b || ran3 == c) {
+					str++;
+					if (ran1 == a && ran2 == b || ran1 == a && ran3 == c || ran2 == b && ran3 == c) {
+					str++;	
+					if ( ran1 == a && ran2 == b && ran3 == c) {
+						System.out.println("★☆정답입니다☆★");
+						}
+					}
+					break;				
+				}
+				
+				while (ran1 == b || ran1 == c || ran2 == a || ran2 == c || ran3 == a || ran3 == b) {
+					if(ran1 == b && ran2 == a || ran1 == b && ran2 == c || ran1 == c && ran2 == a 
+							|| ran2 == a && ran3 == b || ran2 == c && ran3 ==a || ran2 == c && ran3 == b) {
+						ball++;
+					} 
+					 ball++;
+
+					break;
+				}
+				if (ran1 != b || ran1 == c && ran2 != a || ran2 != c && ran3 != a || ran3 != b ) {
+					out++;
+					if(ran1 != b && ran2 != a || ran1 != b && ran2 != c || ran1 != c && ran2 != a 
+							|| ran2 != a && ran3 != b || ran2 != c && ran3 !=a || ran2 != c && ran3 != b) {
+						
+					}
+				}
+				
+		
+		
+		
+		
+		System.out.println(goal);
+		System.out.println("S : " + str + " B : " + ball + " O : " + out); 
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		sc.close();
+	}
+
+}
