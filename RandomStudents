@@ -23,49 +23,24 @@ public class RandomStudents {
 			System.out.println("청소당번으로 적당한 인원은 몇 명인지 입력해주세요.");
 			System.out.println("입력한 숫자에 맞추어 무작위로 이번 주 청소당번이 정해집니다.");
 			
-			int x = Integer.parseInt(sc.nextLine()); // 수 입력
-			String[] y = new String[x]; //뽑힌 학생들 이름 넣을 배열. 입력된 수에 따라 배열 공간 생성
-			int[] add = new int [x]; // 랜덤 숫자 넣을 배열. 입력된 수에 따라 배열 공간 생성
-			
-			for (int i = 0; i < x; i++) { //입력된 수 만큼 랜덤 숫자 add 배열에 넣기
-				int random = (int)(Math.random()*25)+1; //1~25 랜덤으로
-				add[i] = random; //x개수만큼 배열로 삽입
-				}
-			
-			for (int i = 0; i < y.length; i++) { 
-					y[i] = students[add[i]];		//student[랜덤숫자 in add배열]을 뽑힌 학생 배열인 y에 넣기
+			int input = Integer.parseInt(sc.nextLine()); // 수 입력
+				int i = 0;
+				while(i < input) {
+					int random = (int)(Math.random()*25)+1; //1~25 랜덤으로
+					if(stucopy[random] == 0) {
+						stucopy[random] ++;
+						i++;
+					} else if (i == input) {
+						break;
 					}
-			System.out.println(Arrays.toString(y)); //뽑힌 학생들 이름 출력
-			
-			
-			/*
-			for ()
-			*/
-			//System.out.println
-			//System.out.println
-		
-		//랜덤 숫자는 25 미만이어야 students에서 뽑음
-		//y 주소는 x보다 작아야 함. x는 반복 횟수
+				}
 				
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+				for(int j = 0; j < students.length; j++){
+					if(stucopy[j] == 1) {
+						System.out.println("청소 당번 : " + students[j]);
+						}
+					}
+	
 	}
 
 }
