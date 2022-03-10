@@ -1,0 +1,71 @@
+package d_array;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class RandomStudents {
+
+	public static void main(String[] args) {
+			//제비뽑기!
+      // 25명 (이름은 배열에 저장) 중 랜덤으로 뽑을 n명을 입력받아 n명을 뽑을 예정
+			//뽑힌 사람들은 중복 X
+	
+			String[] students = {"이정후", "은주영", "박다혜", "이다솜", "윤정영", 
+			                     			"이가은", "이상학", "신현국", "김은태", "황명성", 
+			                     			"이재원", "문승제", "권흥종", "이규범", "안은실", 
+			                     			"이희경", "오세영", "김민정", "최민정", "전윤미", 
+			                     			"김수원", "이소정", "임정은", "최지은", "최지연"};
+			
+			Scanner sc = new Scanner(System.in);
+			
+			System.out.println("★☆★☆★☆제비뽑기☆★☆★☆★");
+			System.out.println("406호의 총 인원은 25명입니다.");
+			System.out.println("청소당번으로 적당한 인원은 몇 명인지 입력해주세요.");
+			System.out.println("입력한 숫자에 맞추어 무작위로 이번 주 청소당번이 정해집니다.");
+			
+			int x = Integer.parseInt(sc.nextLine()); // 수 입력
+			String[] y = new String[x]; //뽑힌 학생들 이름 넣을 배열. 입력된 수에 따라 배열 공간 생성
+			int[] add = new int [x]; // 랜덤 숫자 넣을 배열. 입력된 수에 따라 배열 공간 생성
+			
+			for (int i = 0; i < x; i++) { //입력된 수 만큼 랜덤 숫자 add 배열에 넣기
+				int random = (int)(Math.random()*25)+1; //1~25 랜덤으로
+				add[i] = random; //x개수만큼 배열로 삽입
+				}
+			
+			for (int i = 0; i < y.length; i++) { 
+					y[i] = students[add[i]];		//student[랜덤숫자 in add배열]을 뽑힌 학생 배열인 y에 넣기
+					}
+			System.out.println(Arrays.toString(y)); //뽑힌 학생들 이름 출력
+			
+			
+			/*
+			for ()
+			*/
+			//System.out.println
+			//System.out.println
+		
+		//랜덤 숫자는 25 미만이어야 students에서 뽑음
+		//y 주소는 x보다 작아야 함. x는 반복 횟수
+				
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}
