@@ -1,0 +1,100 @@
+package d_array;
+
+import java.util.Arrays;
+
+public class Array {
+
+	public static void main(String[] args) {
+
+
+
+
+
+//Q. 10개의 정수를 저장할 수 있는 배열을 선언 및 초기화 해주세요.
+		int [] arr = new int[10];
+		
+		//Q. 배열의 모든 인덱스에 1~100 사이의 랜덤한 값을 저장해주세요.
+		for (int i = 0; i< arr.length; i++) {
+			arr[i] = (int)(Math.random() * 100) + 1;
+		}
+			System.out.println(Arrays.toString(arr));
+
+		
+		//Q. 배열에 저장된 모든 값을 합계와 평균을 출력해주세요.
+		int sum = 0;
+		for (int i = 0; i < arr.length; i++) {
+			sum += arr[i];
+		}
+		double avg = (double)sum / arr.length; // 혹은 sum / 10.0으로 해도 소수점 뒷자리까지(만) 나옴
+		
+		System.out.println( "합계 :  " + sum + " 평균 : " + avg);
+		System.out.println(Arrays.toString(arr));
+		
+		
+		//Q. 배열에 저장된 값들 중 최소값과 최대값을 출력해주세요.
+		int max = arr[0];
+		int min = arr[0];
+
+		for (int i = 0; i < arr.length; i++) {
+			if (max < arr[i]) {
+				max = arr[i];
+			}
+			if (min > arr[i]) {
+				min = arr[i];
+			}
+		}
+		System.out.println( "최대값 :  " + max + " 최소값 : " + min);
+		System.out.println( "-------------------------------------------");
+		
+		
+		int[] shuffle = new int[10];
+		for(int i = 0; i < shuffle.length; i++) {
+			shuffle[i] = i + 1;
+		}
+		System.out.println(Arrays.toString(shuffle));
+		
+		//Q. 배열을 섞어주세요.
+		
+		for (int i = 0; i < shuffle.length*10; i++) {
+			int temp = shuffle[0];
+			int random = (int)(Math.random() * shuffle.length);
+						
+			temp = shuffle[0];
+			shuffle[0] = shuffle[random];
+			shuffle[random] = temp;
+		}
+		System.out.println(Arrays.toString(shuffle));
+    
+    
+    //Q. 1~10 사이의 랜덤값을 500번 생성하고, 각 숫자가 생성된 횟수를 출력해주세요.
+		int[] number = new int[500];
+		int[] match = new int[10];
+		
+		for (int i = 0; i < number.length; i++) {
+			number[i] = (int)(Math.random() * 10) + 1;
+			for (int j = 0; j < match.length; j++) {
+				if (number[i] == (j+1)) {
+					match[j] ++;
+				}
+			}
+		}
+		for (int i = 0; i < 10; i++) {
+			System.out.println((i+1) + "와(과) 일치 : " + match[i]);
+		}
+		
+	System.out.println(Arrays.toString(number));
+	System.out.println(Arrays.toString(match));	
+	*/
+    
+    
+    // 정답
+		int[] match = new int[10];
+		
+		for (int i = 0; i < 500; i++) {
+			int random = (int)(Math.random() * 10) + 1;
+			match[random-1] ++;
+			}			
+		System.out.println(Arrays.toString(match));
+	}
+
+}
