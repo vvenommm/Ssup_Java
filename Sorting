@@ -33,7 +33,27 @@ public class Sort {
     
 // ----------------------------------------------------------------------
 
+	/*
+	 * 버블정렬 : 바로 뒤의 숫자와 비교해서 큰 수를 뒤로 보내는 방식
+	 * 1,2 2,3 ,3,4 등 비교해서 가장 큰 숫자를 뒤로 보냄
+	 * 다시 처음으로 가서 쭉 반복
+	 */
 
+		for(int i = 0; i < arr.length - 1; i++) {
+			boolean flag = true;
+			for (int j = 0; j < arr.length-1-i; j++) {//증가하는 i를 빼면 점점 max가 줄어듦
+				if(arr[j] > arr[j+1]) {
+					int temp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = temp;
+					flag = false;
+				}
+			}
+			if(flag) {
+				break;
+			}
+		System.out.println( Arrays.toString(arr));
+		System.out.println( "------------------------------------------");
   
   }
 }
