@@ -12,25 +12,24 @@ public class Sort {
 	 * 삽입정렬 : 두 번째 숫자부터 앞의 숫자들과 비교해 큰 수는 뒤로 밀고 중간에 삽입하는 방식
 	 */
   
-  // 선택정렬
-  int[] arr = new int[10];
-		
-		for(int i = 0; i < arr.length; i++) {
-			arr[i] = (int)(Math.random()*100) +1;			
-		}
-		System.out.println( Arrays.toString(arr));
-    
-    int temp = 0;
-		for(int i = 0; i < arr.length; i++) {			
-			for(int j = 0; j < arr.length; j++) {
-				if(arr[i] < arr[j]) {
-					temp = arr[i];
-					arr[i] = arr[j];
-					arr[j] = temp;
+	/*
+	 * 선택정렬 : 가장 작은 숫자를 찾아서 앞으로 보내는 방식
+	 */
+	 //최소값이 아니라 최소값이 들어있는 인덱스를 찾는게 포인트
+		for(int i = 0; i < arr.length-1; i++) {
+			int min = i; //값이 아니라 인덱스를 넣고 시작
+			for(int j = i+1; j < arr.length; j++) {
+				if(arr[j] < arr[min]) {
+					min = j; //인덱스를 저장. 몇 번 인덱스가 가장 작은지 알 수 있음
 				}
 			}
+			 int temp = arr[i];
+			 arr[i] = arr[min];
+			 arr[min] = temp;
+				System.out.println( Arrays.toString(arr));
 		}
 		System.out.println( Arrays.toString(arr));
+		System.out.println( "------------------------------------------");
     
 // ----------------------------------------------------------------------
 
