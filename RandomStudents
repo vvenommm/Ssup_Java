@@ -35,9 +35,10 @@ public class RandomStudents {
 					}
 				}
 				
+				System.out.print("청소 당번 : " );
 				for(int j = 0; j < students.length; j++){
 					if(stucopy[j] == 1) {
-						System.out.println("청소 당번 : " + students[j]);
+						System.out.print(" " + students[j] + " ");		
 						}
 					}
 	
