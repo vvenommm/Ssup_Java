@@ -32,6 +32,35 @@ public class RandomStudents {
 			
 			students_copy = tmp_arr;
 		}
+		
+		/*정답
+		 *막 섞은 후 첫 n명만 출력하기도 방법 중 하나
+		 *이 정답은 뽑힌 이름이랑 뽑은 이름이랑 하나씩 비교하는 방법
+		 *
+		 *Scanner sc = new Scanner(System.in);
+		 *System.out.println("청소당번으로 적당한 인원은 몇 명인지 입력해주세요.");
+		 *int count = sc.nextInt();
+		 *
+		 *String[] pick = new String[count];
+		 *int pickCount = 0;
+		 *
+		 *do{
+		 *		int random = (int)(Math.random()*students.length);
+		 *	
+		 *		boolean flag = true;
+		 *		for(int i = 0; i < pick.length; i++) { // 배열 수만큼의 값이 나오게 하려고 배열.length 곱셈
+		 *			if(students[random].equals(pick[i])) {
+		 *				flag = false;
+		 *			}
+		 *		}
+		 *		
+		 *		if(flag) { // boolean 타입을 넣는데 flag 자체가 boolean이라 변수명만 써도 알아서 판단
+		 *			pick[pickCount++] = students[random];
+		 *		}
+		 *} while(pickCount < count); //현재 뽑힌 사람 < 뽑아야 할 사람. 같아지면 멈춤
+		 *
+		 *System.out.println(arrays.toString(pick));
+		*/	
 	}
 
 }
