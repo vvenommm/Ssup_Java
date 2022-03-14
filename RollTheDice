@@ -1,0 +1,25 @@
+package d_array;
+
+import java.util.Arrays;
+
+public class RollTheDice {
+
+	public static void main(String[] args) {
+		//3. 주사위를 던져서 각 면이 나오는 횟수를 출력하는 프로그램을 만들어 보자.
+				//난수 발생기를 10,000번 호출하여 각 면이 나타나는 횟수를 계산하여 배열에 저장한다. 
+				int[] cntdice = new int [6];
+				int count = 1;
+				
+				while(count <= 10000) {
+					int dice = (int)(Math.random()*6) +1;
+					for (int i = 0; i < 6; i++) {
+						if(dice == i+1) {
+							cntdice[i]++;
+						}
+					} count ++;
+				}
+				System.out.println(Arrays.toString(cntdice));
+				
+	}
+
+}
