@@ -71,6 +71,33 @@ public class Quiz {
 //			System.out.println(Arrays.toString(count)); // 같은 수 세기
 
 
+//별 출력하기
+//			String star = "";
+				
+//			for(int i = 0; i < count.length; i++) { 
+//				System.out.print((i+1) + " : ");
+//					for(int j = 0; j < count[i]; j++) {
+//						star += "*";
+//						}
+//						System.out.print(star);			
+//						System.out.print(" " + count[i] + "개\n");
+//						star = "";
+//						}
+
+//정답
+//			int[] count = new int[5];
+//			for(int i = 0; i < arr.length; i++) {
+//				count[arr[i]-1]++;
+//					}
+//				for(int i = 0; i < count.length; i++) {
+//				System.out.print(i + 1 + " : ");
+//				for(int j = 0; j < count[i]; j++) {
+//				System.out.print("*");
+//				}
+//				System.out.println(" " + count[i]);
+//				}	
+System.out.println("------------------------------");
+
 	}
 
 }
