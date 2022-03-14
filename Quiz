@@ -1,0 +1,36 @@
+package d_array;
+
+import java.util.Arrays;
+
+public class Quiz {
+
+	public static void main(String[] args) {
+		//1. 거스름돈 동전 개수 구하기
+		int money = (int)(Math.random()*500) * 10 ;
+		int[] coin = {500, 100, 50, 10};
+		
+		System.out.println("거스름돈 : " + money);
+		
+		/*
+		 * 거스름돈 동전 단위마다 몇 개의 동전이 필요한지 출력해주세요.
+		 * 거스름돈 : 2860원
+		 * 500원 : 5개
+		 * 100원 : 3개
+		 * 50원 : 1개
+		 * 10원 : 1개
+		*/
+		
+		int[] num = new int[coin.length];
+		num[0] = money/coin[0];
+		num[1] = money%500/coin[1];
+		num[2] = money%100/coin[2];
+		num[3] = money%50/coin[3];
+		
+		System.out.println("500원 : " + num[0] + "개");
+		System.out.println("100원 : " + num[1] + "개");
+		System.out.println(" 50원 : " + num[2] + "개");
+		System.out.println(" 10원 : " + num[3] + "개");
+		
+	}
+
+}
