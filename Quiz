@@ -31,6 +31,17 @@ public class Quiz {
 		System.out.println(" 50원 : " + num[2] + "개");
 		System.out.println(" 10원 : " + num[3] + "개");
 		
+	//정답
+				
+		int count = money / coin[1];
+		money %= coin[1];
+			
+		count = money / coin[2];
+		money %= coin[2];
+			
+		count = money / coin[3];
+		money%= coin[3];
+
 	}
 
 }
