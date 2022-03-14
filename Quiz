@@ -49,6 +49,28 @@ public class Quiz {
 			System.out.println(coin[i] + "원 : " + count + "개");
 			}
 	System.out.println("------------------------------");
+	
+	
+	//2. 그래프 그리기
+				int [] arr = new int[20];
+//			for(int i = 0; i < arr.length; i++) {
+//			arr[i] = (int)(Math.random()*5) + 1;
+//			}
+//			System.out.println(Arrays.toString(arr));
+//					
+//			// 1~5 사이의 각 숫자가 발생된 개수만큼 *을 사용해 그래프를 그려주세요.
+//						
+//			int[] count = new int[5];
+//			for(int i = 0; i<arr.length; i++) {
+//				for(int j = 0; j<count.length; j++) {
+//					if(arr[i] == j+1) {
+//						count[j] ++; 
+//						}
+//					}
+//				}
+//			System.out.println(Arrays.toString(count)); // 같은 수 세기
+
+
 	}
 
 }
