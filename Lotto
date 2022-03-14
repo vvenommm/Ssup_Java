@@ -1,0 +1,31 @@
+package d_array;
+
+import java.util.Arrays;
+
+public class array_practice {
+
+	public static void main(String[] args) {
+  
+  //		2.	로또번호를 생성하는 프로그램을 작성하시오.
+//		(로또 번호는 1 ~ 45번까지 있으며 이 중에서 중복되지 않는 6개의 숫자를 추출하여 결과를 출력한다.)
+		
+		//로또 45번까지 배열 만들어 숫자 넣기
+		int[] lotto = new int [45];
+		for(int i = 1; i<lotto.length+1; i++) {
+			lotto[i-1] = i;
+		} System.out.println(Arrays.toString(lotto));
+		
+		
+		//방법 1. 무작위로 섞은 후 첫 6개 출력
+		int temp = 0;
+		for (int i = 0; i<lotto.length; i++) {
+			int ran = (int)(Math.random()*45) +1;
+			temp = lotto[i];
+			lotto[i] = lotto[ran];
+			lotto[ran] = temp;
+		}
+		System.out.println(Arrays.toString(lotto));
+		System.out.println("오늘의 로또 번호 : " + lotto[0] + " " + lotto[1] + " "  + lotto[2] + " "  + lotto[3] + " "  + lotto[4] + " "  + lotto[5]);
+    
+    }
+    }
