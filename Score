@@ -43,7 +43,23 @@ public class Score {
 		System.out.println(Arrays.toString(avg));
 		System.out.println("------------------------------------------");
 
-
+//과목합계
+		int[] subsum = new int[score[0].length];
+		for(int i = 0; i < score[i].length; i++) {
+			for(int j = 0; j < score.length; j++) {
+				subsum[i] += score[j][i];
+			}
+		}
+		System.out.println(Arrays.toString(subsum));
+		System.out.println("------------------------------------------");
+		
+//과목평균
+		double[] subavg = new double[score[0].length];
+		for(int i = 0; i < score[i].length; i++) {
+			subavg[i] = Math.round((double)subsum[i] / score[0].length*100)/100.00;
+		}
+		System.out.println(Arrays.toString(subavg));
+		System.out.println("------------------------------------------");
   
   
   }
