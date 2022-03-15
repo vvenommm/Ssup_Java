@@ -60,8 +60,45 @@ public class Score {
 		}
 		System.out.println(Arrays.toString(subavg));
 		System.out.println("------------------------------------------");
-  
-  
+		System.out.println("------------------------------------------");
+		System.out.println("------------------------------------------");
+
+System.out.print("  이름 \t");
+		for(int i = 1; i < title.length; i++) {
+			System.out.print(title[i] + " ");
+			System.out.print("\t");
+			}
+		System.out.println("");
+		
+		for(int i = 0; i < students.length; i++) {
+			System.out.print(students[i]);
+			System.out.print("\t");
+			for(int j = 0; j<score[i].length;j++) {
+			System.out.print(score[i][j]);
+			System.out.print("\t");
+			}
+			System.out.print(sum[i]);
+			System.out.print("\t");
+			System.out.print(avg[i]);
+			System.out.print("\t");
+			System.out.print(rank[i]);
+			System.out.print("\t");
+			System.out.println("");
+			}
+		
+		System.out.print("과목합계  ");
+		for(int i = 0; i < subsum.length; i++) {
+			System.out.print(subsum[i] + " ");
+			System.out.print("\t");
+		}
+		System.out.println("");
+		
+		System.out.print("과목평균  ");
+		for(int i = 0; i < subavg.length; i++) {
+			System.out.print(subavg[i] + " ");
+			System.out.print("\t");
+		}
+		
   }
   
 }
