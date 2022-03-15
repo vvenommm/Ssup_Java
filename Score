@@ -25,6 +25,25 @@ public class Score {
 			System.out.println(Arrays.toString(score[i]));
 		} System.out.println("------------------------------------------");
   
+  //합계
+		int[] sum = new int[score.length];
+		for(int i = 0; i < score.length; i++) {
+			for(int j = 0; j < score[i].length; j++) {
+				sum[i] += score[i][j];
+			}
+		}
+		System.out.println(Arrays.toString(sum));
+		System.out.println("------------------------------------------");
+		
+//평균
+		double[] avg = new double[score.length];
+		for(int i = 0; i < score.length; i++) {
+			avg[i] = Math.round((double)sum[i] / score[0].length*100)/100.0;
+		}
+		System.out.println(Arrays.toString(avg));
+		System.out.println("------------------------------------------");
+
+
   
   
   }
