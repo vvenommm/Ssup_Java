@@ -1,0 +1,32 @@
+package d_array;
+
+import java.util.Arrays;
+
+public class Score {
+
+	public static void main(String[] args) {
+  
+  //학생
+		String[] students = {"A", "B", "C", "D", "E", 
+     			"F", "G", "H", "I", "J", 
+     			"K", "L", "M", "N", "O", 
+     			"P", "Q", "R", "S", "W", 
+     			"X", "Y", "Z", "AB", "CD"};
+  
+  //항목
+		String[] title = {"이름", "국어", "영어", "수학", "사회", "과학", "Oracle", "Java", "합계", "평균", "석차"};
+		
+  //25명의 점수
+		int[][] score = new int[25][7];
+		for(int i = 0; i < score.length; i++) {
+			for(int j = 0; j < score[i].length; j++) {
+				score[i][j] = (int)(Math.random()*100 + 1);
+			}
+			System.out.println(Arrays.toString(score[i]));
+		} System.out.println("------------------------------------------");
+  
+  
+  
+  }
+  
+}
