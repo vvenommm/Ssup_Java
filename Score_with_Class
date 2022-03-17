@@ -123,6 +123,20 @@ public class Score {
 		students[min].avg = tempe;
 	}
 */
+
+	//선택정렬
+	Student temp = new Student();
+	for(int i = 0; i < students.length-1; i++) {
+		int min = i; //값이 아니라 인덱스를 넣고 시작
+		for(int j = i+1; j < students.length; j++) {
+			if(students[j].rank < students[min].rank) {
+				min = j; //인덱스를 저장. 몇 번 인덱스가 가장 작은지 알 수 있음
+			}
+		}
+		 temp = students[i];
+		 students[i] = students[min];
+		 students[min] = temp;
+	}
   
   }
   
