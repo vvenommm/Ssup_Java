@@ -28,6 +28,15 @@ public class Score {
 		students[i].avg = Math.round((double)students[i].sum/3*100)/100.00;
 	}
 	
+	//석차
+	for(int i = 0; i < students.length; i++) {
+		for(int j = 0; j < students.length; j++) {
+			if(students[i].sum < students[j].sum) {
+				students[i].rank++;
+			}
+		}
+	}
+	
 	
     
   }
