@@ -80,7 +80,50 @@ public class Score {
 	for(int i = 0; i < subAvg.length; i++) {
 		System.out.print(subAvg[i] + "\t");
 	}
-    
+	
+	System.out.println("----------------------------------------------------");
+	System.out.println("----------------------------------------------------");
+	System.out.println("----------------------------------------------------");
+	
+	/*
+	//석차순 정렬 - 노가다
+	for(int i = 0; i < students.length-1; i++) {
+		int min = i; //값이 아니라 인덱스를 넣고 시작
+		for(int j = i+1; j < students.length; j++) {
+			if(students[j].rank < students[min].rank) {
+				min = j; //인덱스를 저장. 몇 번 인덱스가 가장 작은지 알 수 있음
+			}
+		}
+		int temp = students[i].rank;
+		students[i].rank = students[min].rank;
+		students[min].rank = temp;
+					 
+		String tem = studentNames[i];
+		studentNames[i] = studentNames[min];
+		studentNames[min] = tem;
+					 
+		temp = students[i].kor;
+		students[i].kor = students[min].kor;
+		students[min].kor = temp;
+				 
+		temp = students[i].eng;
+		students[i].eng = students[min].eng;
+		students[min].eng = temp;
+					 
+		temp = students[i].math;
+		students[i].math = students[min].math;
+		students[min].math = temp;
+					 
+		temp = students[i].sum;
+		students[i].sum = students[min].sum;
+		students[min].sum = temp;
+					 
+		double tempe = students[i].avg;
+		students[i].avg = students[min].avg;
+		students[min].avg = tempe;
+	}
+*/
+  
   }
   
 }
