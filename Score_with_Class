@@ -137,6 +137,33 @@ public class Score {
 		 students[i] = students[min];
 		 students[min] = temp;
 	}
+	
+	System.out.println("\n----------------------------------------------------");
+	System.out.println("----------------------------------------------------");
+	System.out.println("----------------------------------------------------");
+	
+	for(int i = 0; i < title.length; i++) {
+		System.out.print(title[i] + "\t");
+	}
+	System.out.println("\n----------------------------------------------------");
+	for(int i = 0; i < studentNames.length; i++) {
+		System.out.print(students[i].name + "\t");
+		System.out.print(students[i].kor + "\t");
+		System.out.print(students[i].eng + "\t");
+		System.out.print(students[i].math + "\t");
+		System.out.print(students[i].sum + "\t");
+		System.out.print(students[i].avg + "\t");
+		System.out.println(students[i].rank + "\t");		
+	}
+	System.out.println("----------------------------------------------------");
+	System.out.print("과목 합계\t");
+	for(int i = 0; i < subSum.length; i++) {
+		System.out.print(subSum[i] + "\t");
+	}
+	System.out.print("\n과목 평균\t");
+	for(int i = 0; i < subAvg.length; i++) {
+		System.out.print(subAvg[i] + "\t");
+	}
   
   }
   
