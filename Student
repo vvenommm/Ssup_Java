@@ -10,5 +10,20 @@ public class Student {
 	double avg;
 	int rank;
 
+	int rdom () {
+		return (int)(Math.random()*101);
+	}
+	
+	int summ(){
+		return (kor + eng + math);
+	}
+	
+	double avgg() {
+		return(Math.round((double)sum/3*100)/100.00);
+	}
+	
+	void print1 () {
+		System.out.print(name + "\t" + kor + "\t" + eng + "\t" + math + "\t" + sum + "\t" + avg);
+	}
 	
 }
