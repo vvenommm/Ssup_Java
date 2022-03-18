@@ -1,0 +1,13 @@
+package e_oop.score2;
+
+public class Score {
+
+	public static void main(String[] args) {
+		/*
+		 * Student 내용의 일부를 class, method 만들어서 score 프로그램 다시 만들기
+		 * 학생 1명에 대한 클래스가 student. 따라서 학생 수 만큼 더 만들어주고,
+		 * student 클래스의 method는 학생 1명이 할 수 있는 일로 설계해야 함
+		 */
+	}
+
+}
