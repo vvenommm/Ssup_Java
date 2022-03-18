@@ -1,3 +1,5 @@
+//It is related to the file "Student"
+
 package e_oop.score2;
 
 public class Score {
@@ -8,6 +10,33 @@ public class Score {
 		 * 학생 1명에 대한 클래스가 student. 따라서 학생 수 만큼 더 만들어주고,
 		 * student 클래스의 method는 학생 1명이 할 수 있는 일로 설계해야 함
 		 */
+	
+	String[] studentNames= {"A", "B", "C", "D", "E", 
+     			"F", "G", "H", "I", "J", 
+     			"K", "L", "M", "N", "O", 
+     			"P", "Q", "R", "S", "T", 
+     			"U", "V", "W", "X", "Y"};
+		
+		String[] subject = {"이름", "국어", "영어", "수학", "합계", "평균", "석차"};
+		
+		Student[] st= new Student[studentNames.length];
+		
+		for(int i = 0; i < studentNames.length; i++) {
+			st[i] = new Student();
+			st[i].name = studentNames[i];
+			st[i].kor = st[i].rdom();
+			st[i].eng = st[i].rdom();
+			st[i].math = st[i].rdom();
+			st[i].sum = st[i].summ();
+			st[i].avg = st[i].avgg();
+		}
+	
+	
+	
+	
+	
+	
+	
 	}
 
 }
