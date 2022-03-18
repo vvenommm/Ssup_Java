@@ -24,3 +24,40 @@ public class SampleClass {
 	}
 
 }
+
+
+
+package e_oop;
+
+public class OOP {
+
+	public static void main(String[] args) {
+		/*
+		 * 객체지향 프로그래밍(Object Oriented Programming)
+		 * - 프로그래밍을 단순히 코드의 연속으로 보는 것이 아니라 객체 간의 상호작용으로 봄
+		 * - 코드의 재사용성이 높고 유지보수가 용이
+		 */
+		
+		SampleClass sc = new SampleClass();
+		
+		sc.method(20);
+		
+		String rtnValue = sc.method(20); //아무것도 안 하면 값이 날아가니까..?
+		
+		System.out.println(rtnValue);
+		
+	//	sc.method2();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}
