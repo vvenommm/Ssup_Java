@@ -30,6 +30,17 @@ public class Score {
 			st[i].sum = st[i].summ();
 			st[i].avg = st[i].avgg();
 		}
+		
+		//석차
+		int[] rank = new int[studentNames.length];
+		for(int i = 0; i < studentNames.length; i++) {
+			rank[i]++;
+			for(int j = 0; j < studentNames.length; j++) {
+				if(st[i].avg < st[j].avg) {
+					rank[i]++;
+				}
+			}
+		}
 	
 	
 	
