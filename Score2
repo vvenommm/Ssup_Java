@@ -51,7 +51,12 @@ public class Score {
 			subSum[2] += st[i].mathSum();
 		}
 	
-	
+	//과목평균
+		
+		double[] subAvg = new double[3];
+		for(int i = 0; i < subSum.length; i++) {
+			subAvg[i] = Math.round((double)subSum[i]/studentNames.length*100)/100.00;
+		}
 	
 	
 	
