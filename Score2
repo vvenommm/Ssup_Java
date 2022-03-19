@@ -58,9 +58,29 @@ public class Score {
 			subAvg[i] = Math.round((double)subSum[i]/studentNames.length*100)/100.00;
 		}
 	
-	
-	
-	
+	//출력
+
+		for(int i = 0; i < subject.length; i++) {
+		System.out.print(subject[i] + "\t"); //과목 나열
+		}
+		System.out.print("\n"); //한 줄 엔터
+		
+		for(int i = 0; i < st.length; i++) {
+			st[i].print1(); //과목점수 합계 평균 나열
+			System.out.print(rank[i]);
+			System.out.print("\n");
+		}
+		
+		System.out.print("과목합계\t");
+		for(int i = 0; i < subSum.length; i++) {
+			System.out.print(subSum[i] + "\t");
+		}
+		
+		System.out.print("\n과목평균\t");
+		for(int i = 0; i < subAvg.length; i++) {
+			System.out.print(subAvg[i] + "\t");
+		}
+		
 	}
 
 }
