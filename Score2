@@ -42,6 +42,14 @@ public class Score {
 			}
 		}
 	
+	//과목합계
+		
+		int[] subSum = new int[3];
+		for(int i = 0; i < studentNames.length; i++) {
+			subSum[0] += st[i].korSum();
+			subSum[1] += st[i].engSum();
+			subSum[2] += st[i].mathSum();
+		}
 	
 	
 	
