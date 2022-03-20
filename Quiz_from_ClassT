@@ -131,18 +131,15 @@ public class Q02 {
 		//다시 숫자 이어붙이기 (여기 작업 중)
 		long ten = 1;
 		for(int i = 0; i < num.length; i++) {
-			for(long j = 0; j < num.length; j--) {
-				if(num[i]<0) {
-					num[i] += 1;
-					answer += num[i];
-				}else if(num[i]>0) {
-					answer += num[i]*ten;
-					ten *= 10;
-				}
+			if(num[i] > 0) {
+				answer += num[i]*ten;
+				ten *= 10;
+			}else if(num[i]<0) {
+				answer += 0;
 			}
 		}
 		
-		return answer;//Arrays.toString(num);
+		return answer;
 
 	}
 }
