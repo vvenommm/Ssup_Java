@@ -15,3 +15,21 @@ public class ScanUtil {
 	}
 	
 }
+
+-------------------------------------------------------------
+
+package e_oop;
+
+public class Static {
+
+public static void main(String[] args) {
+
+	System.out.println("문자열 입력>");
+	String nextLine = ScanUtil.nextLine();
+		
+	System.out.println("문자열 입력>");
+	int nextInt = ScanUtil.nextInt();
+		
+		
+}
+}
