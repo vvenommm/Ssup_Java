@@ -1,0 +1,198 @@
+package e_oop;
+
+public class TV {
+	
+	//전원, 채널, 소리가 변경 가능 = 변수
+	//전원을 껐다 켰다, 채널을 변경하는(총 3개 메서드 : 채널 직접 입력 or 채널 위로 이동&채널 아래로 이동), 소리를 올렸다 내리는 메서드
+	
+	//전원
+	String onOff = "";
+	
+	//채널
+	int channel = 1;
+	
+	//볼륨
+	int volume = 1;
+	
+	
+		
+	//전원 온/오프
+	String power(int input) {
+		if(input == 1) {
+			onOff = "TV is ON.\nHello :D";
+			System.out.println(onOff + "\n현재 채널 : " + channel + "\t현재 볼륨 : " + volume);
+		}
+		if(input == 0) {
+			onOff = "Bye~ Bye~\nTV is OFF.";
+			System.out.println(onOff);
+			}
+		return onOff;
+	}
+	
+
+	//특정 채널로 변경
+	int ch (int input) {
+		System.out.println("현재 채널 : " + channel);
+		System.out.println("몇 번 채널로 이동하시겠습니까?");
+		input = ScanUtil.nextInt();
+		if(0< input && input < 10) {
+			channel = input;
+			System.out.println(channel+"번으로 이동합니다.");
+		} else {
+			System.out.println("채널이 존재하지 않습니다.\n가능 채널 : 1번 - 10번");
+		}
+		return channel;
+	}
+	
+	
+	//채널 업
+	int chUP (int input) {
+		if(0 < channel && channel < 10) {
+				channel++;
+				System.out.println("현재 채널 : " + channel);
+				}else {
+					System.out.println("현재 채널 : " + channel);
+					System.out.println("채널이 존재하지 않습니다.\n가능 채널 : 1번 - 10번");
+				}
+		return channel;
+	}
+	
+	
+	//채널 다운
+	int chDOWN (int input) {
+		if(10 > channel && channel > 1) {
+				channel--;
+				System.out.println("현재 채널 : " + channel);
+				}else {
+					System.out.println("현재 채널 : " + channel);
+					System.out.println("채널이 존재하지 않습니다.\n가능 채널 : 1번 - 10번");
+				}
+		return channel;
+	}
+	
+	
+	//음량 업
+	int volUP(int input) {
+		if(0 <= volume && volume < 20) {
+			volume++;
+			System.out.println("현재 볼륨 : " + volume);
+		}else {
+			System.out.println("현재 볼륨 : " + volume);
+			System.out.println("최대 볼륨은 20입니다.\n볼륨을 더 이상 높일 수 없습니다.");
+		}
+		return volume;
+	}
+	
+	
+	//음량 다운
+	int volDOWN(int input) {
+		if(20 > volume && volume > 0) {
+			volume--;
+			System.out.println("현재 볼륨 : " + volume);
+		}else {
+			System.out.println("현재 볼륨 : " + volume);
+			System.out.println("최저 볼륨은 0입니다.\n볼륨을 더 이상 낮출 수 없습니다.");
+		}
+		return volume;
+	}
+	
+	//입력받기
+	int get(int input) {
+	System.out.println("2. 채널 올리기 3. 채널 내리기 4. 채널 입력하기 5. 볼륨 올리기 6. 볼륨 내리기");
+	input = ScanUtil.nextInt();
+	return input;
+	}
+	
+	
+	//전체 작동
+	void work(int input) {
+		boolean oo = true;
+		while(oo) {
+//			System.out.println("TV is OFF :(\nTV를 켜주세요~");
+//			System.out.println("1. TV 켜기 (1 입력해주세요.)");
+//			input = ScanUtil.nextInt();
+			
+			switch(input) {
+			case 0:
+				System.out.println("TV is OFF :(\nTV를 켜주세요~");
+				System.out.println("1. TV 켜기 (1 입력해주세요.)");
+				input = ScanUtil.nextInt();
+				
+			case 1:
+				do {
+					this.get(input);
+					if(input ==2) {
+						this.chUP(input);
+						this.get(input);
+					}else if(input ==3) {
+						this.chDOWN(input);
+						this.get(input);
+					}else if(input ==4) {
+						this.ch(input);
+						this.get(input);
+					}else if(input == 5) {
+						this.volUP(input);
+						this.get(input);
+					}else if(input == 6) {
+						this.volDOWN(input);
+						this.get(input);
+					}
+				}while(input == 0);
+			
+			}
+			
+			
+			
+//			if(input == 1) {
+//				if(input ==2) {
+//						this.chUP(input);
+//					}else if(input ==3) {
+//						this.chDOWN(input);
+//					}else if(input ==4) {
+//						this.ch(input);
+//					}else if(input == 5) {
+//						this.volUP(input);
+//					}else if(input == 6) {
+//						this.volDOWN(input);
+//					}
+//			}
+//			do {
+//				System.out.println(onOff);
+//				oo = false;
+//				break;}
+//				while(input == 0);
+		}
+//		System.out.println("\"TV is OFF :( TV를 켜주세요~ (1 입력)\"");
+//		System.out.println("1. TV 켜기");
+//		input = ScanUtil.nextInt();
+//		oo = true;
+	}
+
+}
+
+
+
+
+-----------------------------------------------------------------------------
+
+
+package e_oop;
+
+public class WatchingTV {
+
+	public static void main(String[] args) {
+
+		TV tv = new TV();
+		
+		int input;
+		
+		//System.out.println("1. TV 켜기 0. TV 끄기");
+		while(true) {
+//		System.out.println("2. 채널 올리기 3. 채널 내리기 4. 채널 입력하기 5. 볼륨 올리기 6. 볼륨 내리기");
+		input = ScanUtil.nextInt();
+		tv.work(input);
+		}
+	}
+
+}
+
