@@ -43,3 +43,13 @@ public class TV {
 	
 	
 	
+//채널 업
+	void channelUP() {
+		changeChannel(channel +1);
+	}
+	
+	
+//채널 다운
+	void channelDOWN() {
+		changeChannel(channel -1);
+	}
