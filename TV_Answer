@@ -1,0 +1,33 @@
+package e_oop;
+
+public class TV {
+	
+	//전원, 채널, 소리가 변경 가능 = 변수
+	//전원을 껐다 켰다, 채널을 변경하는(총 3개 메서드 : 채널 직접 입력 or 채널 위로 이동&채널 아래로 이동), 소리를 올렸다 내리는 메서드
+	
+	//전원
+	boolean power;
+	
+	//채널
+	int channel = 1;
+	
+	//볼륨
+	int volume = 1;
+	
+	//final : 변수의 값이 바뀌지 않게 해줌 -> 값이 저장되어 있는 변수 = 상수. 한 번 정한 값은 변경 못 함
+	//상수 : 프로그램 안에서 자주 사용되는 의미있는 값을 표현할 때 사용
+	final int MIN_CHANNEL = 1;
+	final int MAX_CHANNEL = 100;
+	final int MIN_VOLUME = 0;
+	final int MAX_VOLUME = 10;
+	
+	
+	
+		
+	//전원 온/오프
+	void power() {
+		power = !power;
+		System.out.println(power? "TV ON" : "TV OFF");
+	}
+  
+  
