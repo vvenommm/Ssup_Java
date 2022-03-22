@@ -1,0 +1,130 @@
+package e_oop;
+
+public class Aircon {
+
+	//전원
+	boolean power;
+	
+	//온도
+	int temp = 17;
+	
+	//바람 방향 - 자동, 수동
+	boolean windDrection;
+	
+	//바람 세기 - 미풍, 강풍, 자연풍
+	int[] wind = {0, 1, 2};
+	int num = 0;
+	
+	final int MAX_TEMP = 25;
+	final int MIN_TEMP = 15;	
+	
+	//=================================================================
+	
+	
+	//전원
+	void power() {
+		power = !power;
+		System.out.println(power? "AirCon ON" : "AirCon OFF");
+	}
+	
+	
+	//온도 업다운
+	void tempChng(int temp) {
+		if(power) {
+			if(MIN_TEMP <= temp && temp <= MAX_TEMP) {
+				this.temp = temp;
+			}
+			System.out.println("온도 : " + this.temp);
+		}
+	}
+	
+	
+	//온도 업
+	void tempUP() {
+		tempChng(temp + 1);
+	}
+	
+	//온도 다운
+	void tempDOWN() {
+		tempChng(temp - 1);
+	}
+	
+	
+	//바람 방향
+	void windDirection() {
+		windDrection = !windDrection;
+		System.out.println(windDrection? "자동" : "수동");
+	}
+	
+	
+	//바람 세기
+	int wind() {
+		System.out.println(wind[num]);
+		num++;
+		if(num == 2) {
+			num = 0;
+		}
+		return num;
+	}
+	
+}
+
+
+
+----------------------------------------------------------------
+
+
+package e_oop;
+
+public class AirConOn {
+
+	public static void main(String[] args) {
+		
+		Aircon ac = new Aircon();
+		
+		while(true) {
+			System.out.print("1. AirCon On/Off\t2. 온도 올리기\t3. 온도 내리기\t4. 바람 방향(자동 수동)\t5. 바람세기 변경(미풍 강풍 자연풍)\t0.프로그램 종료");
+			int input = ScanUtil.nextInt();
+			
+			switch(input) {
+			
+			case 1:
+				ac.power();
+				if(ac.power)
+				break;
+				
+			case 2:
+				
+			
+			case 3:
+				
+				
+			case 4:
+				
+				
+			case 5:
+				
+				
+			case 0:
+			
+			
+			
+			
+			
+			
+			
+			
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+		}
+
+	}
+
+}
