@@ -133,7 +133,7 @@ public class WatchingTV {
 			break;
 			
 		case 6:
-			tv.volumeUP();
+			tv.volumeDOWN();
 			break;
 			
 		case 0:
