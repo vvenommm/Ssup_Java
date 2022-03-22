@@ -53,3 +53,42 @@ public class TV {
 	void channelDOWN() {
 		changeChannel(channel -1);
 	}
+	
+	
+	
+//음량 업
+	void volumeUP() {
+		if(power) {
+			if(volume < MAX_VOLUME) {
+				volume++;
+			}
+			showVolume();
+		}
+	}
+	
+	
+	
+//음량 다운
+	void volumeDOWN() {
+		if(power) {
+			if(volume > MIN_VOLUME) {
+				volume--;
+			}
+			showVolume();
+		}
+	}
+	
+	
+	
+//음량 출력 메서드
+	void showVolume() {
+		System.out.print("음량 : ");
+		for(int i = MIN_VOLUME + 1; i <= MAX_VOLUME; i++) {
+			if(i <= volume) {
+				System.out.print("●");
+			} else {
+				System.out.print("○");
+			}
+		}
+		System.out.println();
+	}
