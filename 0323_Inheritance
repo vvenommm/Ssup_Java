@@ -28,3 +28,16 @@ public class SampleParent {
 	}
 
 }
+
+----------------------------------------------------------
+
+	
+package g_oop2;
+
+public class SampleChild extends SampleParent{
+	
+	void childMethod() {
+		System.out.println(var); //상속 받은 변수
+		System.out.println(method(7, 13)); //상속 받은 메서드
+	}
+}
