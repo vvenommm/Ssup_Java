@@ -4,6 +4,15 @@ public class Store {
 
 	public static void main(String[] args) {
 		//여러가지 물건을 파는 가게
+		Desktop d = new Desktop();
+		AirCon ac = new AirCon();
+		TV tv = new TV();
+		
+		Customer c = new Customer();
+		
+		c.buy(d);
+		c.buy(ac);
+		c.buy(tv);
 
 	}
 
@@ -33,7 +42,7 @@ class AirCon extends Product{
 	AirCon(){
 		super("LG 에어컨", 2000000);
 	}
-	
+}
 class TV extends Product{
 	TV(){
 		super("LG TV", 3000000);
@@ -70,4 +79,3 @@ class Customer{
 	
 	
 	
-}
