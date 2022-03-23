@@ -50,7 +50,7 @@ class TV extends Product{
 }
 	
 class Customer{
-	int money = 100000000;
+	int money = 10000000;
 	Product[] item = new Product[10]; //TV, AirCon, Desktop으로는 각자 자기꺼밖에 담지 못하므로  부모클래스인 Product 타입으로 배열을 만들어줘야 물건을 배열에 담을 수 있음 = 다형성
 
 	void buy(Product p) {//뭘 구매할지를 파라미터를 정해줘야 함. 다형성
@@ -68,14 +68,7 @@ class Customer{
 			}
 		}
 		System.out.println(p.name + "을 구매했습니다.");
+		System.out.println(this.money + "원 남았습니다.");
 		
 	}
 }	
-	
-	
-	
-	
-	
-	
-	
-	
