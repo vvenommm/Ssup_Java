@@ -1,5 +1,8 @@
 package h_exception;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 public class ExceptionHandling {
 
 	public static void main(String[] args) {
@@ -38,6 +41,22 @@ public class ExceptionHandling {
 			
 		} catch(Exception e) { //부모 클래스기 때문에 다형성으로 모든 예외를 처리할 수 있다
 			
+		} test1();
+	}
+	
+		private static void test1() {
+			test2();
+		}
+		
+	
+
+	private static void test2() {
+//		System.out.println(10/0);
+		try {
+			new FileInputStream("");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 }
