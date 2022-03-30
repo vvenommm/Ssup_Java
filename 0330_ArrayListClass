@@ -150,8 +150,119 @@ public class ArrayListClass {
 			System.out.println(list);
 		}
 		
+		System.out.println("==========================");
 		
+		ArrayList<ArrayList<Integer>> list2 = new ArrayList<ArrayList<Integer>>();
 		
+		list = new ArrayList<Integer>(); //생성했지만 비어있는 객체가 됨
+		list.add(10);
+		list.add(20);
+		list.add(30);
+		
+		list2.add(list); //배열 하나를 저장
+		
+		list = new ArrayList<Integer>(); //새로운 객체 또 생성
+		
+		list.add(40);
+		list.add(50);
+		list2.get(1).add(60);
+		
+		list2.add(list); //또 저장
+
+		System.out.println(list2);
+		
+		for(int i = 0; i < list2.size(); i++) {
+			for(int j = 0; j < list2.get(i).size(); j++) {
+				System.out.println(list2.get(i).get(j));
+			}
+			
+		}
+		
+		System.out.println("==========================");
+		
+		//학생 3명의 5과목에 대한 0~100점의 랜덤한 점수를 2차원 Arraylist에 저장해주세요
+		ArrayList<ArrayList<Integer>> student = new ArrayList<ArrayList<Integer>>();
+		ArrayList sub = new ArrayList<String>();
+		sub.add("국어");
+		sub.add("영어");
+		sub.add("수학");
+		
+		ArrayList score = new ArrayList<Integer>(); 
+		score.add((int)(Math.random()*101));
+		score.add((int)(Math.random()*101));
+		score.add((int)(Math.random()*101));
+		score.add((int)(Math.random()*101));
+		score.add((int)(Math.random()*101));
+		
+		student.add(score);
+		
+		score = new ArrayList<Integer>(); 
+		score.add((int)(Math.random()*101));
+		score.add((int)(Math.random()*101));
+		score.add((int)(Math.random()*101));
+		score.add((int)(Math.random()*101));
+		score.add((int)(Math.random()*101));
+		
+		student.add(score);
+		
+		score = new ArrayList<Integer>(); 
+		score.add((int)(Math.random()*101));
+		score.add((int)(Math.random()*101));
+		score.add((int)(Math.random()*101));
+		score.add((int)(Math.random()*101));
+		score.add((int)(Math.random()*101));
+		
+		student.add(score);
+		
+		System.out.println(student);
+		
+		System.out.println("==========================");
+
+		//혹은 for문으로
+		list2 = new ArrayList<ArrayList<Integer>>();
+		for(int i = 0; i < 3; i++) {
+			list = new ArrayList<Integer>();
+			for(int j = 0; j < 5; j++) {
+				list.add((int)(Math.random()*101));
+			}
+			list2.add(list);
+			System.out.println(list);
+		}
+		
+		System.out.println("==========================");
+
+		//각 학생별 합계와 평균을 구해주세요
+		int sum1 = 0;
+		int sum2 = 0;
+		int sum3 = 0;
+		for(int i = 0; i < 3; i++) {
+				sum1 += list2.get(0).get(i);
+				sum2 += list2.get(1).get(i);
+				sum3 += list2.get(2).get(i);
+			}
+		double avg1 = (double)sum1 / list2.get(0).size();
+		double avg2 = (double)sum2 / list2.get(0).size();
+		double avg3 = (double)sum3 / list2.get(0).size();
+		
+		System.out.println(sum1 + " / " + sum2 + " / " + sum3 + " / " + avg1 + " / " + avg2 + " / " + avg3);
+		
+		System.out.println("==========================");
+		//정답
+		
+		ArrayList<Integer> sums = new ArrayList<Integer>();
+		ArrayList<Double> avgs = new ArrayList<Double>();
+		
+		//어레이에 저장할 때 첫 값은 add를 하고 그 후에는 set을 해줘야함 -> 번거롭기 때문에 다르게 해보겠음
+		for(int i = 0; i < list2.size(); i++) {
+			sum = 0;
+			for(int j = 0; j < list2.get(i).size(); j++) {
+				sum += list2.get(i).get(j);
+			}			
+			sums.add(sum);
+			avgs.add((double)sum / list2.get(i).size());
+		}
+		System.out.println(sums);
+		System.out.println(avgs);
 		
 	}
 
