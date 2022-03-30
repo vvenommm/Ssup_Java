@@ -93,11 +93,11 @@ public class Score {
 				if(sums.get(i) < sums.get(j)) {
 					rnk = rank.get(i);
 					rnk++;
-					rank.add(i, rnk);
+					rank.set(i, rnk);
 				}
 			}			
 		}
-		System.out.println(rank);
+//		System.out.println(rank);
 		
 		
 		//과목 합계 & 평균
@@ -106,15 +106,13 @@ public class Score {
 		int temp = 0;
 		for(int i = 0; i < score2.get(i).size(); i++) {
 			temp = 0;
-			for(int j = 0; j < score2.get(i).size(); j++) {
+			for(int j = 0; j < score2.size(); j++) {//25
 				temp += score2.get(j).get(i);
 			}
-			System.out.println(temp);
+//			System.out.println(temp);
 			subSums.add(i, temp);
 			subAvgs.add(Math.round((double)subSums.get(i)/student.size()*100)/100.0);
 		}
-		
-		
 		
 		
 		////////////////////////////////////////////////////////////////////////////////
@@ -136,11 +134,8 @@ public class Score {
 			}
 			System.out.print(sums.get(i) + "\t");
 			System.out.print(avgs.get(i) + "\t");
-			System.out.println(""); //석차
-			
-			
-			
-			
+			System.out.println(rank.get(i)); //석차
+
 			
 		}
 		
@@ -155,8 +150,6 @@ public class Score {
 		for(int i = 0; i < subAvgs.size(); i++) {
 			System.out.print(subAvgs.get(i) + "\t");
 		}
-		
-	
 
 	}
 
