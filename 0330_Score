@@ -1,5 +1,7 @@
 package j_collection;
 
+import java.util.ArrayList;
+
 public class Score {
 
 	public static void main(String[] args) {
@@ -7,16 +9,50 @@ public class Score {
 		 * 우리 반 모두의 국어, 영어, 수학, 사회, 과학, Oracle, Java 점수를
 		 * 0~100 사이의 랜덤으로 생성, 아래와 같이 출력해주세요
 		 * 이름		국어		영어		수학		사회		과학		Oracle	Java	합계		평균		석차
-		 * 홍길동		90		90		90		90		90		90		90		630		90.00	1
-		 * 홍길동		90		90		90		90		90		90		90		630		90.00	1
-		 * 홍길동		90		90		90		90		90		90		90		630		90.00	1
-		 * 홍길동		90		90		90		90		90		90		90		630		90.00	1
-		 * 홍길동		90		90		90		90		90		90		90		630		90.00	1
+		 * 이정후		90		90		90		90		90		90		90		630		90.00	1
+		 * 박다혜		90		90		90		90		90		90		90		630		90.00	1
+		 * 이다솜		90		90		90		90		90		90		90		630		90.00	1
+		 * 안은실		90		90		90		90		90		90		90		630		90.00	1
+		 * 은주영		90		90		90		90		90		90		90		630		90.00	1
 		 * 과목합계	450		450		450		450		450		450		450	
 		 * 과목평균 90.00		90.00	90.00	90.0	90.00	90.00	90.00
 		*/
 		
 		
+		ArrayList<String> title = new ArrayList<String>();
+		title.add("이름");
+		title.add("국어");
+		title.add("영어");
+		title.add("수학");
+		title.add("사회");
+		title.add("과학");
+		title.add("Oracle");
+		title.add("Java");
+		title.add("합계");
+		title.add("평균");
+		title.add("석차");
+		
+		System.out.println(title);
+		
+		////////////////////////////////////////////////////////////////////////////////
+		
+		ArrayList<String> student = new ArrayList<String>();
+		student.add("이정후");
+		student.add("박다혜");
+		student.add("이다솜");
+		student.add("안은실");
+		student.add("은주영");
+		
+		////////////////////////////////////////////////////////////////////////////////
+		
+		ArrayList<Integer> score = new ArrayList<Integer>();
+		
+		for(int i = 0; i < 7; i++) {
+			for(int j = 0; j < student.size(); j++) {
+			
+			int a = (int)(Math.random()*101);
+			}
+		}
 		
 		
 		
