@@ -32,59 +32,131 @@ public class Score {
 		title.add("평균");
 		title.add("석차");
 		
-		System.out.println(title);
+//		System.out.println(title);
 		
 		////////////////////////////////////////////////////////////////////////////////
 		//학생 이름
-		
+		String[] students = {"이정후", "은주영", "박다혜", "이다솜", "윤정영", 
+     			"이가은", "이상학", "신현국", "김은태", "황명성", 
+     			"이재원", "문승제", "권흥종", "이규범", "안은실", 
+     			"이희경", "오세영", "김민정", "최민정", "전윤미", 
+     			"김수원", "이소정", "임정은", "최지은", "최지연"};
 		ArrayList<String> student = new ArrayList<String>();
-		student.add("이정후");
-		student.add("박다혜");
-		student.add("이다솜");
-		student.add("안은실");
-		student.add("은주영");
+		String name = "";
+		for(int i = 0; i < students.length; i++) {
+			name = students[i];
+			student.add(name);
+		}
+//		System.out.println(student);
 		
 		////////////////////////////////////////////////////////////////////////////////
 		//과목 점수
 		
 		ArrayList<ArrayList<Integer>> score2 = new ArrayList<ArrayList<Integer>>();
 		
-		for(int i = 0; i < 7; i++) {
+		for(int i = 0; i < 25; i++) {
 			ArrayList<Integer> score = new ArrayList<Integer>();
-			for(int j = 0; j < student.size(); j++) {
+			for(int j = 0; j < 7; j++) {
 				score.add((int)(Math.random()*101));
 			}
 			score2.add(score);
 		}
 		
-		System.out.println(score2);
+//		System.out.println(score2);
 		
 		////////////////////////////////////////////////////////////////////////////////
 		//합계, 평균
 		ArrayList<Integer> sums = new ArrayList<Integer>();
 		ArrayList<Double> avgs = new ArrayList<Double>();
 		
+		int sum = 0;
 		for(int i = 0; i < score2.size(); i++) {
-			int sum = 0;
+			sum =0;
 			for(int j = 0; j < score2.get(i).size(); j++) {
 			sum += score2.get(i).get(j);
-			sums.add(sum);
-			avgs.add(Math.round((double)sum / title.size()*100)/100.0);
 			}
+			sums.add(sum);
+			avgs.add(Math.round((double)sums.get(i) / score2.get(0).size()*100)/100.0);
 		}
 		
-		System.out.println(sums);
-		System.out.println(avgs);
+//		System.out.println(sums);
+//		System.out.println(avgs);
+		
+		//석차
+		int rnk = 0;
+		ArrayList<Integer> rank = new ArrayList<Integer>();
+		for(int i = 0; i < student.size(); i++) {
+			rank.add(1);
+		}
+		for(int i = 0; i < student.size(); i++) {
+			for(int j = 0; j < student.size(); j++) {
+				if(sums.get(i) < sums.get(j)) {
+					rnk = rank.get(i);
+					rnk++;
+					rank.add(i, rnk);
+				}
+			}			
+		}
+		System.out.println(rank);
+		
+		
+		//과목 합계 & 평균
+		ArrayList<Integer> subSums = new ArrayList<Integer>();
+		ArrayList<Double> subAvgs = new ArrayList<Double>();
+		int temp = 0;
+		for(int i = 0; i < score2.get(i).size(); i++) {
+			temp = 0;
+			for(int j = 0; j < score2.get(i).size(); j++) {
+				temp += score2.get(j).get(i);
+			}
+			System.out.println(temp);
+			subSums.add(i, temp);
+			subAvgs.add(Math.round((double)subSums.get(i)/student.size()*100)/100.0);
+		}
 		
 		
 		
 		
+		////////////////////////////////////////////////////////////////////////////////
+		//출력
 		
+		//타이틀
+		for(int i = 0; i < title.size(); i++) {
+			System.out.print(title.get(i) + "\t");
+		}
 		
+		System.out.println("\n===================================================================================");
 		
+		//이름 + 점수 + 합 & 평 + 석차
+		for(int i = 0; i < student.size(); i++) {
+			System.out.print(student.get(i) + "\t");
+			for(int j = 0; j < score2.get(i).size(); j++) {
+				System.out.print(score2.get(i).get(j) + "\t");
+				
+			}
+			System.out.print(sums.get(i) + "\t");
+			System.out.print(avgs.get(i) + "\t");
+			System.out.println(""); //석차
+			
+			
+			
+			
+			
+		}
 		
+		System.out.println("\n===================================================================================");
 		
+		System.out.print("과목합계\t");
+		for(int i = 0; i < subSums.size(); i++) {
+			System.out.print(subSums.get(i) + "\t");
+		}
 		
+		System.out.print("\n과목평균\t");
+		for(int i = 0; i < subAvgs.size(); i++) {
+			System.out.print(subAvgs.get(i) + "\t");
+		}
+		
+	
 
 	}
 
