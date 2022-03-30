@@ -18,7 +18,7 @@ public class Score {
 		 * 과목평균 90.00		90.00	90.00	90.0	90.00	90.00	90.00
 		*/
 		
-		
+		//과목 이름
 		ArrayList<String> title = new ArrayList<String>();
 		title.add("이름");
 		title.add("국어");
@@ -35,6 +35,7 @@ public class Score {
 		System.out.println(title);
 		
 		////////////////////////////////////////////////////////////////////////////////
+		//학생 이름
 		
 		ArrayList<String> student = new ArrayList<String>();
 		student.add("이정후");
@@ -44,16 +45,36 @@ public class Score {
 		student.add("은주영");
 		
 		////////////////////////////////////////////////////////////////////////////////
+		//과목 점수
 		
-		ArrayList<Integer> score = new ArrayList<Integer>();
+		ArrayList<ArrayList<Integer>> score2 = new ArrayList<ArrayList<Integer>>();
 		
 		for(int i = 0; i < 7; i++) {
+			ArrayList<Integer> score = new ArrayList<Integer>();
 			for(int j = 0; j < student.size(); j++) {
-			
-			int a = (int)(Math.random()*101);
+				score.add((int)(Math.random()*101));
+			}
+			score2.add(score);
+		}
+		
+		System.out.println(score2);
+		
+		////////////////////////////////////////////////////////////////////////////////
+		//합계, 평균
+		ArrayList<Integer> sums = new ArrayList<Integer>();
+		ArrayList<Double> avgs = new ArrayList<Double>();
+		
+		for(int i = 0; i < score2.size(); i++) {
+			int sum = 0;
+			for(int j = 0; j < score2.get(i).size(); j++) {
+			sum += score2.get(i).get(j);
+			sums.add(sum);
+			avgs.add(Math.round((double)sum / title.size()*100)/100.0);
 			}
 		}
 		
+		System.out.println(sums);
+		System.out.println(avgs);
 		
 		
 		
