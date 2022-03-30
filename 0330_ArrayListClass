@@ -8,37 +8,28 @@ public class ArrayListClass {
 
 	public static void main(String[] args) {
 		/*
-		 * Collection Framework
-		 * List
-		 * Map
-		 * Set
-		 * 
-		 * ArrayList의 주요 메소드
-		 * - boolean add(Object obj) : 마지막 위치에 객체를 추가 후 성공여부를 반환
-		 * - void add(int index, Object obj) : 지정된 위치에 객체를 추가
-		 * - Object set(int index, Object obj) : 지정된 위치에 객체를 저장 후 기존 객체를 반환
-		 * - Object get(int index) : 지정된 위치의 객체를 반환
-		 * - int size() : 저장된 객체의 수를 반환
-		 * - Object remove(int index) : 지정된 위치의 객체를 제거
-		 * 
-		 * 
 		 * Collection Framework : 여러개의 데이트를 다루기위한 클래스를 표준화한것.
-		 * - List => 인터페이스(부모의 역할)/ArrayList (상속받은 아이)
-		 * - Map => 인터페이스(부모의 역할) /CashMap (상속받은 아이)
-		 * - Set => 인터페이스(부모의 역할)
+		 * List => 인터페이스(부모의 역할)/ArrayList (상속받은 아이)
+		 * Map => 인터페이스(부모의 역할) /CashMap (상속받은 아이)
+		 * Set => 인터페이스(부모의 역할)
 		 * 
-		 * ArrayList의 주요 메서드 : 생긴건 배열처럼 생겼으나 길이를 정하지 않는다.(유동적인 배열을 사용)
-		 * - boolean add(Object obj) : 마지막 위치에 객체를 추가 후 성공여부를 반환한다. 
-		 *       =>마지막에 계속 추가하는 방법
-		 * - void add (int index, object obj) : 지정된 위치에 객체를 추가한다. 
-		 *       =>인덱스를 지정해서 그 위치에 obj데이터를 저장해주고, 기존에 그 인덱스에 있던 데이터는 한칸씩 뒤로 밀려남.
-		 * - object set(int index, object obj) : 지정된 위치에 객체를 저장 후 객체를 반환한다.
-		 *       =>인덱스를 지정해서 그 위치에 obj데이터를 저장하고, 기존에 그 위치에 저장되어있던 데이터는 리턴해줌. 
-		 * - object get(int index) : 지정된 위치의 객체를 반환한다.
-		 *       =>인덱스를 지정해주면 그 인덱스에 위치한 데이터를 얻을 수 있음.
-       	* - int size() : 저장된 객체의 수를 반환한다.
-       	*       =>length가 아닌 size를 사용하여 저장된 객체수를 반환.
-       	* - object remove(int index) : 지정된 위치의 객체를 제거한다.
+		 * ArrayList의 주요 메소드 : 생긴건 배열처럼 생겼으나 길이를 정하지 않는다.(유동적인 배열을 사용)
+		 * - boolean add(Object obj) : 마지막 위치에 객체를 추가 후 성공여부를 반환 
+		 * 		=> 마지막에 계속 추가하는 방법
+		 * 
+		 * - void add(int index, Object obj) : 지정된 위치에 객체를 추가
+		 * 		=>인덱스를 지정해서 그 위치에 obj데이터를 저장해주고, 기존에 그 인덱스에 있던 데이터는 한칸씩 뒤로 밀려남.
+		 * 
+		 * - Object set(int index, Object obj) : 지정된 위치에 객체를 저장 후 기존 객체를 반환
+		 * 		=>인덱스를 지정해서 그 위치에 obj데이터를 저장하고, 기존에 그 위치에 저장되어있던 데이터는 리턴해줌. 
+		 * 
+		 * - Object get(int index) : 지정된 위치의 객체를 반환
+		 * 		=>인덱스를 지정해주면 그 인덱스에 위치한 데이터를 얻을 수 있음.
+		 * 
+		 * - int size() : 저장된 객체의 수를 반환
+		 * 		=>length가 아닌 size를 사용하여 저장된 객체수를 반환.
+		 * 
+		 * - Object remove(int index) : 지정된 위치의 객체를 제거
 		 */
 		
 		
@@ -101,7 +92,7 @@ public class ArrayListClass {
 		System.out.println("==========================");
 		
 		//list에 1~100 사이의 랜덤값을 10개 저장해주세요.
-		for(int i = 0; i < 10; i++) { //length란 값을 넣으면 안 ㅚ고 10을 써줘야 함
+		for(int i = 0; i < 10; i++) { //length란 값을 넣으면 안 되고 10을 써줘야 함
 			int random = (int)(Math.random()*100)+1;
 			list.add(random);
 		}
@@ -174,8 +165,7 @@ public class ArrayListClass {
 		for(int i = 0; i < list2.size(); i++) {
 			for(int j = 0; j < list2.get(i).size(); j++) {
 				System.out.println(list2.get(i).get(j));
-			}
-			
+			}			
 		}
 		
 		System.out.println("==========================");
