@@ -113,7 +113,7 @@ public class Grades {
 	public String toString() {
 		return String.format("%s\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%f\t%d",name,kor,eng,math,soc,sci,oracle,java,getSum(),getAvg(),getRank(rank));
 	}
-	
 
+	
 
 }
