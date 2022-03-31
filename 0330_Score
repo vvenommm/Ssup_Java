@@ -1,6 +1,8 @@
 package j_collection;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class Score {
 
@@ -119,37 +121,106 @@ public class Score {
 		//출력
 		
 		//타이틀
-		for(int i = 0; i < title.size(); i++) {
-			System.out.print(title.get(i) + "\t");
-		}
+//		for(int i = 0; i < title.size(); i++) {
+//			System.out.print(title.get(i) + "\t");
+//		}
+//		
+//		System.out.println("\n===================================================================================");
+//		
+//		//이름 + 점수 + 합 & 평 + 석차
+//		for(int i = 0; i < student.size(); i++) {
+//			System.out.print(student.get(i) + "\t");
+//			for(int j = 0; j < score2.get(i).size(); j++) {
+//				System.out.print(score2.get(i).get(j) + "\t");
+//				
+//			}
+//			System.out.print(sums.get(i) + "\t");
+//			System.out.print(avgs.get(i) + "\t");
+//			System.out.println(rank.get(i)); //석차
+//
+//			
+//		}
+//		
+//		System.out.println("\n===================================================================================");
+//		
+//		System.out.print("과목합계\t");
+//		for(int i = 0; i < subSums.size(); i++) {
+//			System.out.print(subSums.get(i) + "\t");
+//		}
+//		
+//		System.out.print("\n과목평균\t");
+//		for(int i = 0; i < subAvgs.size(); i++) {
+//			System.out.print(subAvgs.get(i) + "\t");
+//		}
 		
-		System.out.println("\n===================================================================================");
+		////////////////////////////////////////////////////////////////////////////////
 		
-		//이름 + 점수 + 합 & 평 + 석차
-		for(int i = 0; i < student.size(); i++) {
-			System.out.print(student.get(i) + "\t");
-			for(int j = 0; j < score2.get(i).size(); j++) {
-				System.out.print(score2.get(i).get(j) + "\t");
-				
-			}
-			System.out.print(sums.get(i) + "\t");
-			System.out.print(avgs.get(i) + "\t");
-			System.out.println(rank.get(i)); //석차
+		List<Grades> list = new ArrayList<Grades>();
+		Random random = new Random();
+		random.nextInt(101);
+//		list.add(new Grades("홍길동", random.nextInt(101), random.nextInt(101), random.nextInt(101), random.nextInt(101), random.nextInt(101), random.nextInt(101), random.nextInt(101)));
+		for(int i =0; i<students.length; i++) {
+		      list.add(new Grades(students[i]
+		            ,random.nextInt(101)
+		            ,random.nextInt(101)
+		            ,random.nextInt(101)
+		            ,random.nextInt(101)
+		            ,random.nextInt(101)
+		            ,random.nextInt(101)
+		            ,random.nextInt(101)));
+		      }
 
-			
+		
+		for(int i =0; i<25; i++) {
+		System.out.println(list.get(i));
 		}
 		
-		System.out.println("\n===================================================================================");
 		
-		System.out.print("과목합계\t");
-		for(int i = 0; i < subSums.size(); i++) {
-			System.out.print(subSums.get(i) + "\t");
+		System.out.println("\n\n===================================================================================\n\n");
+		
+		//향상된 for문 : for-each문 jdk1.5부터 사용가능
+		//콜론 뒤에 있는게 배열 데이터
+		for(Grades grades : list) {
+			grades.getAvg();
+		}
+		System.out.println("이름\t국어\t영어\t수학\t사회\t과학\tOracle\tJava\t합계\t평균\t석차");
+		System.out.println("===================================================================================");
+		for(Grades grades : list) {
+			System.out.println(grades);
 		}
 		
-		System.out.print("\n과목평균\t");
-		for(int i = 0; i < subAvgs.size(); i++) {
-			System.out.print(subAvgs.get(i) + "\t");
+		
+		//과목합계
+		int[] sums2 = new int[7];
+		for (Grades grades : list) {
+			sums2[0] += grades.getKor();
+			sums2[1] += grades.getEng();
+			sums2[2] += grades.getMath();
+			sums2[3] += grades.getSoc();
+			sums2[4] += grades.getSci();
+			sums2[5] += grades.getOracle();
+			sums2[6] += grades.getJava();
 		}
+		
+		//%와 d 사이에 반점을 찍으면 자동으로 3자리 수마다 반점이 찍힘
+		System.out.printf("과목합계\t%,d\t%,d\t%,d\t%,d\t%,d\t%,d\t%,d", sums2[0], sums2[1], sums2[2], sums2[3], sums2[4], sums2[5], sums2[6]);
+		//printf는 format으로 앞으로 나올 형식에 따라 출력하라는 뜻
+		
+		
+		//과목평균
+		double[] avgs2 = new double[7];
+		for(Grades grades : list) {
+			avgs2[0] = Math.round((double)sums2[0] / sums2.length)*100/100.0;
+			avgs2[1] = Math.round((double)sums2[1] / sums2.length)*100/100.0;
+			avgs2[2] = Math.round((double)sums2[2] / sums2.length)*100/100.0;
+			avgs2[3] = Math.round((double)sums2[3] / sums2.length)*100/100.0;
+			avgs2[4] = Math.round((double)sums2[4] / sums2.length)*100/100.0;
+			avgs2[5] = Math.round((double)sums2[5] / sums2.length)*100/100.0;
+			avgs2[6] = Math.round((double)sums2[6] / sums2.length)*100/100.0;
+		}
+		System.out.printf("\n과목합계\t%d\t%d\t%d\t%d\t%d\t%d\t%d", avgs2[0], avgs2[1], avgs2[2], avgs2[3], avgs2[4], avgs2[5], avgs2[6]);
+		
+
 
 	}
 
