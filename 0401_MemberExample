@@ -1,0 +1,19 @@
+package j_collection;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class MemberExample {
+
+	public static void main(String[] args) {
+		
+		Set<Member> set = new HashSet<Member>();
+		
+		new Member("홍길동", 30);
+		new Member("홍길동", 30);
+		new Member("이순신", 20);
+		new Member("홍길동", 25);
+
+	}
+
+}
