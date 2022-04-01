@@ -21,15 +21,17 @@ public class SetExample {
 		set.add("java");
 		System.out.println(set.size());
 		//java가 중복이기 때문에 포함되지 않아서 3이 출력 됨
+		System.out.println("=======================================");
 		
 		//반복자
 		Iterator<String> iterator = set.iterator();
 		while(iterator.hasNext()) {
 			String string = iterator.next();
 			System.out.println(string);
+			System.out.println("=======================================");
 		}
 		
-		for(String stirng : set) {
+		for(String string : set) {
 			System.out.println(string);
 		}
 		
