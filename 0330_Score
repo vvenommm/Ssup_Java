@@ -178,6 +178,28 @@ public class Score {
 		
 		System.out.println("\n\n===================================================================================\n\n");
 		
+		for(Grades grades : list) { // 기준 데이터를 구하기 위한 반복문
+			int rankk = 1; //처음에는 1등으로 시작
+			for(Grades g : list) {//비교 대상을 나타내는 반복문
+				if(grades.getSum() < g.getSum()) {
+					rankk++;
+				}
+			} 
+			grades.setRank(rankk);
+		}
+		
+		//혹은
+		for ( int i = 0; i < list.size(); i++) {
+			int rankkk = 1;
+			for(int j = 0; j < list.size(); j++) {
+				if(list.get(i).getSum() < list.get(j).getSum()) {
+					rankkk++;
+				}
+			}
+			list.get(i).setRank(rankkk);
+		}
+		
+		
 		//향상된 for문 : for-each문 jdk1.5부터 사용가능
 		//콜론 뒤에 있는게 배열 데이터
 		for(Grades grades : list) {
@@ -219,10 +241,7 @@ public class Score {
 			avgs2[6] = Math.round((double)sums2[6] / sums2.length)*100/100.0;
 		}
 		System.out.printf("\n과목합계\t%d\t%d\t%d\t%d\t%d\t%d\t%d", avgs2[0], avgs2[1], avgs2[2], avgs2[3], avgs2[4], avgs2[5], avgs2[6]);
-		
-	
 
-		
 
 	}
 
