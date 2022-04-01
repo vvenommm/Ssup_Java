@@ -29,6 +29,9 @@ public class SetExample {
 			System.out.println(string);
 		}
 		
+		for(String stirng : set) {
+			System.out.println(string);
+		}
 		
 
 	}
