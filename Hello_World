@@ -1,7 +1,38 @@
+import java.util.Arrays;
+
+import f_game.Foods;
+
 public class Hello {
 
-  public static void main(String[] args) {
-  
-  System.out.print("Hello World!")
-  }
+	public static void main(String[] args) {
+		//	System.out.println("Hello, world!");		
+			
+			
+			int[] arr = {8, 45, 2, 34, 11, 80, 73, 1};
+			
+//			for(int i = 0; i < arr.length; i++) {
+//				arr[i] = (int)(Math.random()*100) +1;			
+//			}
+			System.out.println("원조 배열 :\n"+ Arrays.toString(arr));
+			System.out.println("---------------------------------");
+			int min = 0;
+			
+			for (int i = 0; i < arr.length -1; i++) {
+				
+				for(int j = 1; j < arr.length; j++) {
+					if(arr[j] < arr[i]) {
+						min = arr[j];
+						
+							min = arr[j];
+							arr[j] = arr[i];
+							arr[i] = min;
+						
+					} 
+					
+				} System.out.println(Arrays.toString(arr));
+			}
+			
+			int rand = (int)(Math.random()*6)+1;
+			System.out.println(rand);
+	}
 }
