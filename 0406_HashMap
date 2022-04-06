@@ -139,9 +139,23 @@ public class HashMapClass {
 		colleage.add(rows);
 		
 		System.out.println(colleage);
-//		for(String key : colleage.get()) {
-//			
-//		}
+		for(int i = 0; i < colleage.size(); i++) {
+			rows = colleage.get(i);
+			for(String key : rows.keySet()) {
+				System.out.println(i + " : " + key + " / " + rows.get(key));
+			}
+			System.out.println("--------------------------");
+		}
+		
+		for(int i = 0; i < colleage.size(); i++) {
+			rows = colleage.get(i);
+			System.out.println(rows.get("COLL_NAME"));
+			System.out.println(rows.get("COLL_CODE"));
+			for(String key : rows.keySet()) {
+				System.out.println(i + " : " + key + " / " + rows.get(key));
+			}
+			System.out.println("--------------------------");
+		}
 		
 	}
 
