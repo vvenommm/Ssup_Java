@@ -1,0 +1,44 @@
+package j_collection;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import e_oop.ScanUtil;
+
+public class Post {
+	
+	String time() {
+		SimpleDateFormat f = new SimpleDateFormat("mm/dd");
+		String time = f.format(System.currentTimeMillis());
+		return time;
+	}
+
+	HashMap<String, Object> writing(ArrayList<HashMap<String, Object>> list) {
+		HashMap<String, Object> a = new HashMap<String, Object>();
+		System.out.print("제목 : ");
+		String str = ScanUtil.nextLine();
+		a.put("제목", str);
+		System.out.print("\n작성자 : ");
+		str = ScanUtil.nextLine();
+		a.put("작성자", str);
+		System.out.print("\n내용 : ");
+		str = ScanUtil.nextLine();
+		a.put("내용", str);
+		a.put("작성일", time());
+		list.add(a);
+		return a;
+	}
+	
+	void print (ArrayList<HashMap<String, Object>> list, HashMap<String, Object> a) {
+		for(int i = 0; i < list.size(); i++) {
+			a = list.get(i);
+			System.out.print(i+1 + "\t\t");
+			System.out.print(a.get("제목") + "\t\t");
+			System.out.print(a.get("작성자") + "\t\t");
+			System.out.println(a.get("작성일"));
+		}
+	}
+	
+	
+}
