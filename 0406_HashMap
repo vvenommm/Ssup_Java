@@ -1,5 +1,6 @@
 package j_collection;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Set;
@@ -60,11 +61,60 @@ public class HashMapClass {
 		}
 		
 		
+		//hashmap 왜? 어디에 쓰는가?
+		//자바와 db를 연결해서 쓸 예정
+		//db는 컬럼이 있고 값이 존재
+		//그 db의 구조를 표현할 수 있는 방법이 필요함
+		//컬럼 하나씩 담는 방법이 2가지가 있음
+		//1. 클래스 만든 후 변수로 컬럼을 만듦 -> 행 이름을 변수를 만들어서 array list에 값을 저장
+		
+		ArrayList<Dept> deptTable = new ArrayList<Dept>(); // 클래스 dept 만들어서 arraylist에 저장
 		
 		
+		//2. array list에 hash map을 저장
+		ArrayList<HashMap<String, Object>> anyTable = new ArrayList<HashMap<String,Object>>();
+		//hash map은 key를 통해 값을 저장
+		//key는 컬럼 명, 값은 컬럼 값
+		//hash map에 컬럼명, 컬럼값 3개를 저장하면 한 행 저장 완성
+		//그걸 array list에 저장하면 테이블의 형태가 됨
+		
+		//장단점
+		//1번 장정 : 클래스를 보면 테이블 구조 쉽게 파악 가능 (컬럼, 타입 등)
+		//1번 단점 : 테이블 수만큼 클래스도 생성해야 함
+		//2번 장점 : array list  하나로 모든 테이블을 만들 수 있음
+		//2번 다점 : 테이블 구조를 알기 힘듦
+		//1번은 구조를 알기 쉽기에 주로 중요한 테이블을 만들 때 사용 ex) 회원테이블
+		//2번은 구조 파악이 중요한 것이 않은, 그리 중요치 않은 테이블을 만들 때 주로 사용.
+		
+		
+		System.out.println("---------------------------------------------------");
+		//2번 방법 해보기
+		
+		ArrayList<HashMap<String, Object>> table = new ArrayList<HashMap<String,Object>>();
+		HashMap<String, Object> row = new HashMap<String, Object>()	;
+		//10 accounting new york을 넣을 것
+		row.put("DEPTNO", 10);
+		row.put("DNAME", "ACCOUNTING");
+		row.put("LOC", "NEW YORK");
+		table.add(row);
+		
+		row = new HashMap<String, Object>();
+		row.put("DEPTNO", 20);
+		row.put("DNAME", "RESEARCH");
+		row.put("LOC", "DALLAS");
+		table.add(row);
+		
+		System.out.println(table);
 		
 		
 		
 	}
 
+}
+
+
+class Dept{
+	int deptNo;
+	String dName;
+	String loc;
 }
