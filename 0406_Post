@@ -30,14 +30,52 @@ public class Post {
 		return a;
 	}
 	
+	void click(ArrayList<HashMap<String, Object>> list, HashMap<String, Object> a, int input2) {
+		for(int i = 0; i < list.size(); i++) {
+			if(input2 == i+1) {
+				int temp = i;
+				a = list.get(temp);
+				System.out.println("=========================================");
+				System.out.println((temp+1) + "번 글");
+				System.out.println("제   목 : " + a.get("제목"));
+				System.out.println("작성자 : " + a.get("작성자"));
+				System.out.println("작성일 : " + a.get("작성일"));
+				System.out.println("내   용 : " + a.get("내용"));
+				System.out.println("=========================================");
+			}
+		}
+	}
+	
 	void print (ArrayList<HashMap<String, Object>> list, HashMap<String, Object> a) {
 		for(int i = 0; i < list.size(); i++) {
-			a = list.get(i);
+			int num = i;
+			a = list.get(num);
 			System.out.print(i+1 + "\t\t");
 			System.out.print(a.get("제목") + "\t\t");
 			System.out.print(a.get("작성자") + "\t\t");
 			System.out.println(a.get("작성일"));
 		}
+	}
+	
+	
+	void edit(ArrayList<HashMap<String, Object>> list, HashMap<String, Object> a, int input) {
+		for(int i = 0; i < list.size(); i++) {
+			if(input == i+1) {
+			a = list.get(i);
+			System.out.print("제목 : ");
+			String str = ScanUtil.nextLine();
+			a.put("제목", str);
+			System.out.print("\n작성자 : ");
+			str = ScanUtil.nextLine();
+			a.put("작성자", str);
+			System.out.print("\n내용 : ");
+			str = ScanUtil.nextLine();
+			a.put("내용", str);
+			a.put("작성일", time());
+			list.set(i, a);
+			}
+		}
+		
 	}
 	
 	
