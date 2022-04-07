@@ -1,0 +1,34 @@
+package k_jdbc;
+
+import java.util.List;
+import java.util.Map;
+
+public class JDBCBoard {
+
+	public static void main(String[] args) {
+
+		new JDBCBoard().start();
+
+	}
+	
+	private void start() {
+		while(true) {
+			String sql = "SELECT A.BOARD_NO, A.TITLE, A.WRITER, TO_CHAR(A.REG_DATE, 'MM/DD') AS DATES FROM TB_JDBC_BOARD A LEFT OUTER JOIN MEMBER B ON A.MEM_ID = B.MEM_ID ORDER BY A.BOARD_NO DESC";
+			List<Map<String, Object>> boardList = JDBCUtil.selectList(sql);
+			
+			System.out.println("=================================================");
+			System.out.println("번호\t제목\t작성자\t작성일");
+			System.out.println("-------------------------------------------------");
+			for(Map<String, Object> board : boardList){
+				System.out.println(board.get("BOARD_NO") + "\t");
+				System.out.println(board.get("TITLE") + "\t");
+				System.out.println(board.get("WRITER") + "\t");
+				System.out.println(board.get("DATES") + "\n");
+			}
+			System.out.println("=================================================");
+			
+			
+		}
+	}
+
+}
