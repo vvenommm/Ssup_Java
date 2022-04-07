@@ -57,8 +57,8 @@ public class JDBCUtil {
 			e.printStackTrace();
 		}finally {
 			if(rs != null) try {rs.close();} catch(Exception e) {}
-			if(ps != null) try {rs.close();} catch(Exception e) {}
-			if(con != null) try {rs.close();} catch(Exception e) {}
+			if(ps != null) try {ps.close();} catch(Exception e) {}
+			if(con != null) try {con.close();} catch(Exception e) {}
 		}
 		
 		return map;
@@ -94,8 +94,8 @@ public class JDBCUtil {
 				e.printStackTrace();
 			}finally {
 				if(rs != null) try {rs.close();} catch(Exception e) {}
-				if(ps != null) try {rs.close();} catch(Exception e) {}
-				if(con != null) try {rs.close();} catch(Exception e) {}
+				if(ps != null) try {ps.close();} catch(Exception e) {}
+				if(con != null) try {con.close();} catch(Exception e) {}
 			}
 			
 			return map;
@@ -133,8 +133,8 @@ public class JDBCUtil {
 				e.printStackTrace();
 			}finally {
 				if(rs != null) try {rs.close();} catch(Exception e) {}
-				if(ps != null) try {rs.close();} catch(Exception e) {}
-				if(con != null) try {rs.close();} catch(Exception e) {}
+				if(ps != null) try {ps.close();} catch(Exception e) {}
+				if(con != null) try {con.close();} catch(Exception e) {}
 			}
 			
 			return list;
@@ -174,8 +174,8 @@ public class JDBCUtil {
 			e.printStackTrace();
 		}finally {
 			if(rs != null) try {rs.close();} catch(Exception e) {}
-			if(ps != null) try {rs.close();} catch(Exception e) {}
-			if(con != null) try {rs.close();} catch(Exception e) {}
+			if(ps != null) try {ps.close();} catch(Exception e) {}
+			if(con != null) try {con.close();} catch(Exception e) {}
 		}
 			
 		return list;
@@ -197,13 +197,24 @@ public class JDBCUtil {
 				result = ps.executeUpdate(); //실행 메소드
 				
 				//select를 했을 때 필요한 내용
-
+//				rs = ps.executeQuery(); //실행
+//				
+//				ResultSetMetaData metaData = rs.getMetaData(); //result에서 메타 데이터 가져오기
+//				
+//				int columnCount = metaData.getColumnCount();
+//				
+//				while(rs.next()) {
+//					map = new HashMap<String, Object>();
+//					for(int i = 1; i <= columnCount; i++) {
+//						map.put(metaData.getColumnName(i), rs.getObject(i)); //해쉬맵에 넣어 줌. 키는 컬럼 명. 메타데이터에 있는 getColumnName으로 컬럼명을 알아내서 저장
+//					}
+//				}
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}finally {
 				if(rs != null) try {rs.close();} catch(Exception e) {}
-				if(ps != null) try {rs.close();} catch(Exception e) {}
-				if(con != null) try {rs.close();} catch(Exception e) {}
+				if(ps != null) try {ps.close();} catch(Exception e) {}
+				if(con != null) try {con.close();} catch(Exception e) {}
 			}
 			
 			return result;
@@ -230,8 +241,8 @@ public class JDBCUtil {
 				e.printStackTrace();
 			}finally {
 				if(rs != null) try {rs.close();} catch(Exception e) {}
-				if(ps != null) try {rs.close();} catch(Exception e) {}
-				if(con != null) try {rs.close();} catch(Exception e) {}
+				if(ps != null) try {ps.close();} catch(Exception e) {}
+				if(con != null) try {con.close();} catch(Exception e) {}
 			}
 
 			return result;
