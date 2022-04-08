@@ -1,128 +1,141 @@
 package k_jdbc;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import e_oop.ScanUtil;
 
-public class JDBCBoard {
-
+public class TB_JDBC_BOARD {
+	
+	private List<Map<String, Object>> jBOARD = new ArrayList<Map<String,Object>>();
+	private SimpleDateFormat format = new SimpleDateFormat("MM-dd");
+	
 	public static void main(String[] args) {
-
-		new JDBCBoard().start();
+		
+		List<Map<String, Object>> jBOARD = new TB_JDBC_BOARD().jBOARD;
+		Map<String, Object> map = null;
+		List<Object> param = new ArrayList<Object>();
+		int postNum = 0;
+		new TB_JDBC_BOARD().start(jBOARD, map, param, postNum);
 
 	}
 	
-	private void start() {
-		while(true) {
-			String sql = "SELECT A.BOARD_NO, A.TITLE, A.MEM_ID, TO_CHAR(A.REG_DATE, 'MM/DD') AS DATES FROM TB_JDBC_BOARD A LEFT OUTER JOIN MEMBER B ON A.MEM_ID = B.MEM_ID ORDER BY A.BOARD_NO DESC";
-			List<Map<String, Object>> boardList = JDBCUtil.selectList(sql);
-			
-			System.out.println("=================================================");
-			System.out.println("번호\t제목\t작성자\t작성일");
-			System.out.println("-------------------------------------------------");
-			for(Map<String, Object> board : boardList){
-				System.out.println(board.get("BOARD_NO") + "\t");
-				System.out.println(board.get("TITLE") + "\t");
-				System.out.println(board.get("MEM_ID") + "\t");
-				System.out.println(board.get("DATES") + "\n");
-			}
-			System.out.println("=================================================");
-			
-			System.out.print("1. 조회 2. 등록 0. 종료");
-			int input = ScanUtil.nextInt2();
-			switch(input) {
-			case 1:
-				System.out.println("조회할 게시물 번호");
-				read();
-				break;
-				
-			case 2:
-				insert();
-				break;
-				
-			case 0:
-				System.out.println("프로그램이 종료되었습니다.");
-				System.exit(0);
-				
-			}
-			
-			
-		}
-	}
-
-	private void list(int boardNo) {
-		String sql = "SELECT A.BOARD_NO, A.TITLE, A.CONTENTS, A.MEM_ID, TO_CHAR(A.REG_DATE, 'MM/DD') AS DATES FROM TB_JDBC_BOARD A LEFT OUTER JOIN MEMBER B ON A.MEM_ID = B.MEM_ID WHERE A.BOARD_NO = ?";
-		List<Object> param = new ArrayList<Object>();
-		param.add(boardNo);
+	
+	//전체 틀
+	void start(List<Map<String, Object>> jBOARD, Map<String, Object> map, List<Object> param, int postNum) {
+	while(true) {
+		String sql = "select * from TB_JDBC_BOARD";
+		jBOARD = JDBCUtil.selectList(sql);
 		
-		Map<String, Object> board = JDBCUtil.selectOne(sql, param);
-		System.out.println("=================================================");
-		System.out.println("번호\t: " + board.get("BOARD_NO"));
-		System.out.println("작성자\t: " + board.get("MEM_ID"));
-		System.out.println("작성일\t: " + board.get("DATES"));
-		System.out.println("제목\t: " + board.get("TITLE"));
-		System.out.println("내용\t: " + board.get("CONTENTS"));
-		System.out.println("=================================================");
 		
-		System.out.println("1. 수정 2. 삭제 0. 목록");
+		System.out.println("---------------------------------------------");
+		System.out.println("번호\t제목\t작성자\t작성일");
+		print(jBOARD, map, postNum);
+		System.out.println("---------------------------------------------");
+		System.out.println("1. 글 읽기\t2. 글 작성\t3. 글 수정\t4. 글 삭제\t0. 종료\n->");
 		int input = ScanUtil.nextInt2();
+		
 		switch(input) {
 		case 1:
-			update(boardNo);
+			System.out.println("읽고싶은 글의 번호를 입력해주세요. (00. 뒤로가기)\n->");
+			int read = ScanUtil.nextInt2();
+			if(read == 00) {
+				break;
+			}else {
+				sql = "select * from TB_JDBC_BOARD where BOARD_NO = " + read;
+				map = JDBCUtil.selectOne(sql);
 			break;
+			}
+//			for(int i = 0; i < list.size(); i++) {
+//				a = list.get(i);
+//				System.out.print(i+1 + "\t\t");
+//				System.out.print(a.get("제목") + "\t\t");
+//				System.out.print(a.get("작성자") + "\t\t");
+//				System.out.println(a.get("작성일"));
+//			}
+			
 		case 2:
-			delete(boardNo);
+			posting(jBOARD, map, param, postNum);
+			break;
+		case 3:
+			System.out.println("몇 번 글을 수정하시겠습니까?\n->");
+			input = ScanUtil.nextInt2();
 			break;
 		case 0:
-			
-			break;
+			System.out.println("종료합니다.");
+			System.exit(0);
 		}
-		
 	}
-
-	private void insert(int boardNo) {
-		System.out.println("제목 : ");
-		String title = ScanUtil.nextLine();
-		System.out.println("내용 : ");
-		String contents = ScanUtil.nextLine();
-		System.out.println("아이디 : ");
-		String memId = ScanUtil.nextLine();
-		
-		String sql = "INSERT INTO TB_JDBC_BOARD VALUES (SELECT NVL(MAX(BOARD_NO, 0) +1 FROM TB_JDBC_BOARD), ?, ?< ?, SYSDATE)";
-		List<Object> param = new ArrayList<Object>();
-		param.add(title);
-		param.add(contents);
-		param.add(memId);
-		
-		if(0< JDBCUtil.update(sql, param)) {
-			System.out.println("게시글 등록이 완료되었습니다.");
-		}else {
-		System.out.println("게시글 등록이 실패하였습니다.");
+	}
+	
+	private void print(List<Map<String, Object>> jBOARD, Map<String, Object> map, int postNum) {
+		for(int i = jBOARD.size()-1; i >=0; i--) {
+			postNum = i;
+			map = jBOARD.get(i);
+			System.out.print(postNum + "\t");
+			for(String key : map.keySet()) {
+				System.out.println(map.get("TITLE"));
+				System.out.println(map.get("WRITER"));
+				System.out.println(map.get("DATES"));
+			}
 		}
 	}
 	
-
-	private void delete(int boardNo) {
-		// TODO Auto-generated method stub
+	private void posting(List<Map<String, Object>> jBOARD, Map<String, Object> map, List<Object> param, int postNum) {
+		String sql = "insert into TB_JDBC_BOARD values (?, ?, ?, ?)";
+		param = new ArrayList<Object>();
 		
+		for(int i = jBOARD.size()-1; i >=0; i--) {
+			map = jBOARD.get(i);
+			for(String key : map.keySet()) {
+				if (i == 0) {
+					param.add(1);
+				}else if(map.get("BOARD_NO") != null) {
+					postNum = i+1;
+					param.add(postNum);
+				}
+			}
+		}
+		System.out.print("제목 : ");
+		String input = ScanUtil.nextLine();
+		param.add(input);
+		System.out.print("내용 : ");
+		input = ScanUtil.nextLine();
+		param.add(input);
+		System.out.print("작성자 : ");
+		input = ScanUtil.nextLine();
+		param.add(input);
+
+		int result = JDBCUtil.update(sql, param);
+		System.out.println("글 등록 완료");
+		
+//		
+//		int maxBoardNo = 0;
+//		for(Map<String, Object> board : jBOARD) {
+//			int boardNo = (int)board.get("BOARD_NO");
+//			if(maxBoardNo < boardNo) {
+//				maxBoardNo = boardNo;
+//			}
+//		}
+//		
+//		int boardNo = maxBoardNo + 1;
+//		
+//		HashMap<String, Object> board = new HashMap<String, Object>();
+//		board.put("BOARD_NO", boardNo);
+//		board.put("TITLE", title);
+//		board.put("CONTENT", content);
+//		board.put("MEM_NAME", memName);
+//		board.put("REG_DATE", new Date());
+//		
+//		boardTable.add(board);
+//		System.out.println("등록되었습니다.");
+//		
+////		read(boardNo);
 	}
-
-	private void update(int boardNo) {
-		System.out.println("제목 : ");
-		String title = ScanUtil.nextLine();
-		System.out.println("내용 : ");
-		String contents = ScanUtil.nextLine();
-		
-		String sql = "UPDATE TB_JDBC_BOARD SET TITLE = ?, CONTENTS = ? WHERE BOARD_NO = ?";
-		
-		
-		
-	}
-
-	private void read() {
-		
-	}
-
+	
+	
 }
