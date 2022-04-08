@@ -1,0 +1,45 @@
+package dao;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import service.UserService;
+import util.JDBCUtil;
+
+public class UserDao {
+	
+	//싱글톤 패턴
+	private UserDao() {
+		
+	}
+	private static UserDao instance; //객체를 보관해놓을 변수
+	//객체를 빌려주는 메소드. null일 때 생성해서 return.
+	//getInstance를 호출해서 instance를 빌려주는 방식
+	public static UserDao getInstance() { 
+		if(instance == null) {
+			instance = new UserDao();
+		}
+		return instance;
+	}
+	
+	public int insertUser(String memId, String password, String memName) {
+		String sql = "INSERT INTO TB_JDBC_MEMBER VALUES (?, ?, ?)";
+		List<Object> param = new ArrayList<Object>();
+		param.add(memId);
+		param.add(password);
+		param.add(memName);
+		
+		return JDBCUtil.update(sql, param);
+	}
+	
+	public Map<String, Object> selectMember(String memId, String password){
+		String sql = "SELECT MEM_ID, PASSWORD, MEM_NAME FROM TB_JDBC_MEMBER WHERE MEM_ID = ? AND PASSWORD = ?";
+		List<Object> param = new ArrayList<Object>();
+		param.add(memId);
+		param.add(password);
+		
+		return JDBCUtil.selectOne(sql, param);
+	}
+
+}
