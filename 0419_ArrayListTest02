@@ -1,0 +1,36 @@
+package kr.or.ddit.basic;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ArrayListTest02 {
+
+	public static void main(String[] args) {
+		/*
+		 Q. 5명의 사람 이름을 입력 받아 ArrayList에 저장 후
+		 이들 중 '김'씨 성의 이름을 모두 출력하시오.
+		 */
+		 
+		ArrayList list = new ArrayList();
+		Scanner scan = new Scanner(System.in);
+		
+		for(int i = 0; i < 5; i++) {
+			System.out.println("이름을 입력하세요.\n->");
+			String name = scan.nextLine();
+			list.add(name);
+		}
+		String[] names = (String[])list.toArray(new String[0]);
+		for(int i = 0; i < list.size(); i++) {
+			if(names[i].contains("김")) {
+					System.out.println(names[i]);
+			}
+			System.out.println("=======================");
+			if(names[i].indexOf("김") >= 0) {
+				System.out.println(names[i]);
+			}
+				
+		}
+
+	}
+
+}
